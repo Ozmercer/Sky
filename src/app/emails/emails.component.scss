@@ -1,10 +1,16 @@
-.card {
-  padding: 5px;
-  span {
-    width: fit-content;
-  }
-  .avatar {
-    width: 50px;
-    height: 50px;
+li {
+  list-style-type: none;
+  .wrapper {
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    span {
+      width: fit-content;
+    }
+    .avatar {
+      width: 50px;
+      height: 50px;
+    }
   }
 }
+
