@@ -30,13 +30,16 @@ export class EmailsComponent implements OnInit {
     });
     this.emailService.getMessages().then(messages => {
       messages.subscribe(resp => {
-        this.messages = resp;
+        this.messages = resp.sort((a: EmailMessage, b: EmailMessage) => {
+          if (new Date(a.timestamp) < new Date(b.timestamp)) {
+            return 1;
+          }
+          if (new Date(a.timestamp) > new Date(b.timestamp)) {
+            return -1;
+          }
+          return 0;
+        });
       });
     });
-  }
-
-  getUserEmail(userId: string) {
-    console.log(this.userIdToUser.get(userId).email);
-    return this.userIdToUser.get(userId).email;
   }
 }

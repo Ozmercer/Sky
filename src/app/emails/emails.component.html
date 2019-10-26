@@ -1,7 +1,11 @@
 <h2>Messages:</h2>
 <ul>
-  <li *ngFor="let message of messages" class="card" >
-    <span [matTooltip]="userIdToUser.get(message.userId) ? userIdToUser.get(message.userId).email : ''" matTooltipPosition="right">
+  <li *ngFor="let message of messages" class="card">
+    <img class="avatar" [src]="userIdToUser.get(message.userId) ? userIdToUser.get(message.userId).avatar : ''"
+         alt="user">
+    <span>{{message.timestamp | date}}</span>
+    <span [matTooltip]="userIdToUser.get(message.userId) ? userIdToUser.get(message.userId).email : ''"
+          matTooltipPosition="right">
       {{message.message}}
     </span>
   </li>
