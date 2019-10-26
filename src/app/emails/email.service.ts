@@ -17,10 +17,10 @@ export class EmailService {
   }
 
   getMessages(): Promise<Observable<EmailMessage[]>> {
-    return this.randomDelayPromise(this.http.get('../assets/messages.json'));
+    return this.randomDelayPromise(this.http.get('../assets/messages.json')) as Promise<Observable<EmailMessage[]>>;
   }
 
   getMembers(): Promise<Observable<Member[]>> {
-    return this.randomDelayPromise(this.http.get('../assets/members.json'));
+    return this.randomDelayPromise(this.http.get('../assets/members.json')) as Promise<Observable<Member[]>>;
   }
 }
