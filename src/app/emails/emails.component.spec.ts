@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { EmailsComponent } from './emails.component';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {EmailsComponent} from './emails.component';
+import {MatTooltipModule} from '@angular/material';
 
 describe('EmailsComponent', () => {
   let component: EmailsComponent;
@@ -8,9 +8,10 @@ describe('EmailsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EmailsComponent ]
+      declarations: [EmailsComponent],
+      imports: [MatTooltipModule],
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
