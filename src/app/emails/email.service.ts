@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import {EmailMessage} from '../models/EmailMessage';
+import {Member} from '../models/Member';
 
 @Injectable({
   providedIn: 'root'
@@ -14,11 +16,11 @@ export class EmailService {
     return new Promise(resolve => setTimeout(() => resolve(data), delay));
   }
 
-  getMessages(): Promise<Observable> {
+  getMessages(): Promise<Observable<EmailMessage[]>> {
     return this.randomDelayPromise(this.http.get('../assets/messages.json'));
   }
 
-  getMembers(): Promise<Observable> {
+  getMembers(): Promise<Observable<Member[]>> {
     return this.randomDelayPromise(this.http.get('../assets/members.json'));
   }
 }

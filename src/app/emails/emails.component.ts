@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {EmailService} from './email.service';
+import {EmailMessage} from '../models/EmailMessage';
+import {Member} from '../models/Member';
 
 @Component({
   selector: 'app-emails',
@@ -7,18 +9,23 @@ import {EmailService} from './email.service';
   styleUrls: ['./emails.component.sass']
 })
 export class EmailsComponent implements OnInit {
+  messages: EmailMessage[];
+  members: Member[];
 
-  constructor(private emailService: EmailService) { }
+  constructor(private emailService: EmailService) {
+    this.messages = [];
+    this.members = [];
+  }
 
   ngOnInit() {
     this.emailService.getMembers().then(emails => {
       emails.subscribe(resp => {
-        console.log(resp);
+        this.members = resp;
       });
     });
     this.emailService.getMessages().then(messages => {
       messages.subscribe(resp => {
-        console.log(resp);
+        this.messages = resp;
       })
     });
   }

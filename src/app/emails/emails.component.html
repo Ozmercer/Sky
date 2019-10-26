@@ -1,3 +1,9 @@
-<p>
-  emails works!
-</p>
+<h2>Messages:</h2>
+<ul>
+  <li *ngFor="let message of messages">{{message.message}}</li>
+</ul>
+
+<h2>Members:</h2>
+<ul>
+  <li *ngFor="let member of members">{{member.firstName}} {{member.lastName}}</li>
+</ul>
